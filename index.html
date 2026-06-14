@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LCA釣りコンテンツ、梅雨穴子釣りの体験レポート。初心者でも安心して参加できる、釣って食べるまでの非日常体験。">
+  <meta property="og:title" content="LCA釣り部｜梅雨穴子を釣って、味わう夜">
+  <meta property="og:description" content="船上の夜釣りから、釣った穴子を味わうところまで。参加して初めてわかる、LCAらしい体験の記録。">
+  <meta property="og:image" content="assets/hero.webp">
+  <title>LCA釣り部｜梅雨穴子を釣って、味わう夜</title>
+  <style>
+    :root {
+      --ink: #142026;
+      --muted: #637071;
+      --sea: #0b6f78;
+      --green: #44a45a;
+      --gold: #c89742;
+      --paper: #fbfaf7;
+      --line: rgba(20, 32, 38, .14);
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.75;
+      letter-spacing: 0;
+    }
+    img, video { display: block; max-width: 100%; }
+    a { color: inherit; }
+    .hero {
+      min-height: 92vh;
+      position: relative;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      background: #0d1719;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 12, 14, .10), rgba(7, 12, 14, .18) 42%, rgba(7, 12, 14, .78));
+      z-index: 1;
+    }
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 120px 0 72px;
+      color: var(--white);
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      color: #d8f2e0;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 2px;
+      background: var(--green);
+    }
+    h1 {
+      margin: 18px 0 18px;
+      max-width: 900px;
+      font-size: clamp(42px, 8vw, 92px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+    .lead {
+      max-width: 760px;
+      font-size: clamp(18px, 2.4vw, 25px);
+      font-weight: 700;
+      color: rgba(255,255,255,.92);
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 800;
+      border: 1px solid rgba(255,255,255,.46);
+      background: rgba(255,255,255,.12);
+      backdrop-filter: blur(8px);
+    }
+    .button.primary {
+      background: var(--white);
+      color: var(--ink);
+      border-color: var(--white);
+    }
+    .next-peek {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      width: min(1120px, calc(100% - 40px));
+      color: rgba(255,255,255,.72);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    section {
+      padding: 80px 0;
+    }
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
+      gap: 42px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+    h2 {
+      margin: 0;
+      font-size: clamp(30px, 5vw, 58px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+    .section-head p, .muted {
+      color: var(--muted);
+      margin: 0;
+      font-weight: 600;
+    }
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+      background: var(--white);
+    }
+    .value {
+      padding: 28px;
+      min-height: 210px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .value b {
+      display: block;
+      font-size: 22px;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .value span {
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
+    .photo-band {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .story h3 {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.16;
+    }
+    .story p {
+      margin: 0 0 16px;
+      color: #324044;
+      font-weight: 600;
+    }
+    .quote-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    blockquote {
+      margin: 0;
+      padding: 24px;
+      background: var(--white);
+      border-left: 4px solid var(--gold);
+      border-radius: 8px;
+      min-height: 210px;
+      box-shadow: 0 14px 30px rgba(20, 32, 38, .06);
+    }
+    blockquote p {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 700;
+    }
+    blockquote cite {
+      display: block;
+      margin-top: 18px;
+      color: var(--muted);
+      font-style: normal;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .step {
+      padding: 26px 22px;
+      border-right: 1px solid var(--line);
+      min-height: 190px;
+    }
+    .step:last-child { border-right: 0; }
+    .step small {
+      color: var(--sea);
+      font-weight: 900;
+    }
+    .step b {
+      display: block;
+      margin: 8px 0 10px;
+      font-size: 20px;
+      line-height: 1.25;
+    }
+    .step span {
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      gap: 14px;
+    }
+    .gallery img, .gallery video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      background: #111;
+    }
+    .gallery .tall {
+      grid-row: span 2;
+      aspect-ratio: 4 / 5;
+    }
+    .gallery .wide {
+      grid-column: span 2;
+      aspect-ratio: 16 / 9;
+    }
+    .cta {
+      background: #10272a;
+      color: var(--white);
+      padding: 86px 0;
+    }
+    .cta-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+      gap: 48px;
+      align-items: center;
+    }
+    .cta h2 { color: var(--white); }
+    .cta p {
+      color: rgba(255,255,255,.82);
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .note-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+    .note-list li {
+      padding: 14px 16px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.16);
+      font-weight: 800;
+    }
+    footer {
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    @media (max-width: 840px) {
+      .hero { min-height: 88vh; }
+      .hero-content { padding: 96px 0 80px; }
+      .section-head, .split, .cta-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .value-grid, .quote-row, .timeline {
+        grid-template-columns: 1fr;
+      }
+      .step { border-right: 0; border-bottom: 1px solid var(--line); }
+      .step:last-child { border-bottom: 0; }
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+      .gallery .tall, .gallery .wide {
+        grid-column: span 2;
+        grid-row: auto;
+      }
+      section { padding: 58px 0; }
+      .value { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <img src="assets/hero.webp" alt="出港前の船上に集まったLCA釣り部メンバー">
+    <div class="hero-content">
+      <div class="eyebrow">LCA Fishing Experience / Urayasu</div>
+      <h1>梅雨穴子を釣って、味わう夜。</h1>
+      <p class="lead">釣り初心者でも、船に乗る前から帰った後の食卓まで楽しめる。LCAだから実現できた、学びと遊びが混ざる体験型コンテンツです。</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#why">体験の魅力を見る</a>
+        <a class="button" href="#voices">参加者の声を見る</a>
+      </div>
+    </div>
+    <div class="next-peek">Scroll / 釣る、考える、味わう。次の企画で体験する人へ。</div>
+  </header>
+
+  <main>
+    <section id="why">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>ただ魚を釣るだけでは終わらない。</h2>
+          <p>海の上で試行錯誤し、仲間と盛り上がり、釣った魚を自分たちで味わう。食材の解像度も、人との距離も、いつもより一段深くなる時間です。</p>
+        </div>
+        <div class="value-grid">
+          <div class="value">
+            <b>初心者でも安心</b>
+            <span>仕掛けや釣り方を教わりながら始められるので、初めての船釣りでも参加しやすい空気があります。</span>
+          </div>
+          <div class="value">
+            <b>夢中になれる攻略感</b>
+            <span>生きた魚を相手に、餌、誘い方、竿先の感覚を変えながら試す。まるでゲーム攻略のような面白さ。</span>
+          </div>
+          <div class="value">
+            <b>船上で仲良くなる</b>
+            <span>釣れた、惜しい、餌だけ取られた。そんな一言で自然に会話が生まれ、普段話せない人とも距離が縮まります。</span>
+          </div>
+          <div class="value">
+            <b>食べるまでが体験</b>
+            <span>釣った穴子を白焼き、天ぷら、穴子ご飯へ。自分で獲ったものを味わうことで、食材への見方が変わります。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap split">
+        <img class="photo-band" src="assets/night.webp" alt="夜の海で穴子釣りをする参加者">
+        <div class="story">
+          <h3>夜の海で、全員が同じゲームに入る。</h3>
+          <p>夕方に浦安を出港し、暗くなってからが本番。海の中は見えないから、竿先の小さな動きや手元の感覚を頼りに、何度も試します。</p>
+          <p>釣れる人も、なかなか釣れない人もいる。その差があるからこそ、隣の人のやり方を見たり、声をかけ合ったり、自然に場が温まっていきます。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="voices">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>参加者の声</h2>
+          <p>今回の感想では、釣果以上に「夢中になった」「食材への見方が変わった」「また行きたい」という声が集まりました。</p>
+        </div>
+        <div class="quote-row">
+          <blockquote>
+            <p>うまくいかないことを楽しむのも釣り。餌をつけて、工夫して、時間を忘れるくらい夢中になりました。</p>
+            <cite>初参加メンバーの感想より</cite>
+          </blockquote>
+          <blockquote>
+            <p>自分で釣れたときの感動がたまらない。普段食べている穴子が、どこから来るのかの解像度が上がりました。</p>
+            <cite>参加メンバーの感想より</cite>
+          </blockquote>
+          <blockquote>
+            <p>釣りそのものも楽しいけれど、同じ船の上で体験を共有できるのがLCAらしい。非日常で濃密な時間でした。</p>
+            <cite>参加メンバーの感想より</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>当日の流れ</h2>
+          <p>難しい準備を一人で抱え込む必要はありません。釣り方を教わりながら、体験の入口から出口まで楽しめます。</p>
+        </div>
+        <div class="timeline">
+          <div class="step">
+            <small>01</small>
+            <b>船宿に集合</b>
+            <span>仕掛けや道具の説明を受け、初心者も安心してスタート。</span>
+          </div>
+          <div class="step">
+            <small>02</small>
+            <b>夕方に出港</b>
+            <span>沖へ向かう時間も、参加者同士で自然に会話が生まれる。</span>
+          </div>
+          <div class="step">
+            <small>03</small>
+            <b>夜釣りに挑戦</b>
+            <span>餌をつけ、底を探り、アナゴを誘う。釣れた瞬間は一気に盛り上がる。</span>
+          </div>
+          <div class="step">
+            <small>04</small>
+            <b>釣った穴子を味わう</b>
+            <span>白焼き、天ぷら、穴子ご飯。食べるところまでが、釣りの醍醐味。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>釣りから食卓まで</h2>
+          <p>船上の緊張感、夜景、釣れた瞬間、翌日の食事会。1回の企画で、記憶に残る場面がいくつも生まれました。</p>
+        </div>
+        <div class="gallery">
+          <img class="tall" src="assets/deck.webp" alt="出港前の船と参加者">
+          <video class="wide" src="assets/anago-party.mp4" controls playsinline preload="metadata" poster="assets/party.webp"></video>
+          <img src="assets/sunset.webp" alt="夕暮れの船上で釣りを楽しむ参加者">
+          <img src="assets/catch.webp" alt="船上で穴子を釣る様子">
+          <img src="assets/party.webp" alt="穴子料理を囲む参加者">
+          <img src="assets/food.webp" alt="穴子料理">
+          <img class="wide" src="assets/table.webp" alt="穴子パーティの料理と参加者">
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap cta-inner">
+        <div>
+          <div class="eyebrow">Next Fishing Content</div>
+          <h2>次の釣り企画は、見る側ではなく参加する側へ。</h2>
+          <p>釣れるかどうかだけではなく、挑戦すること、仲間と同じ時間を過ごすこと、食材に触れることまで含めて楽しめるのがLCAの釣りコンテンツです。</p>
+          <p>次回の案内が出たら、初心者の方もぜひ前向きに検討してみてください。</p>
+        </div>
+        <ul class="note-list">
+          <li>初めてでも参加しやすいサポートあり</li>
+          <li>一人では行きにくい体験に入りやすい</li>
+          <li>釣った後の食体験まで楽しめる</li>
+          <li>コミュニティ内の関係性が自然に深まる</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">LCA Fishing Experience / Anago Night Fishing at Urayasu</div>
+  </footer>
+</body>
+</html>
